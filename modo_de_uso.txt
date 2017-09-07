@@ -66,3 +66,6 @@ e iniciar o Microsoft.exe no %AppData%, e o Move.exe quando executado na máquin
 Então resumindo, você deve ter os três arquivos no mesmo diretório e executar o Move.exe.
 
 Por exemplo, você chega na máquina alvo com os três arquivos no pendrive, e quando você abre ele, você o executa (Move.exe) e ele move rapidamente os arquivos e ainda inicia o Microsoft_init.exe, lembrando que como o programa já vai estar sendo executado (Microsoft_init.exe) você já pode remover o pendrive, e shazam, a máquina já vai ser um zumbi seu :)
+
+Como sacar ? Vá no minergate.com/login, coloque suas credenciais (E-mail e Senha) depois vá em minergate.com/internal, selecione a
+moeda que você quer sacar e clique em Withdraw, o resto é com você
