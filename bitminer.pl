@@ -1,6 +1,5 @@
 #!/usr/bin/perl
 use Term::ANSIColor;
-use LWP::UserAgent;
 use warnings;
 use strict;
 use Config;
