@@ -54,3 +54,15 @@ seria utilizado isso: miner->host:xmr.pool.minergate.com:45560;email:joaozinho12
 
 Nota: O BitMiner também pergunta se a máquina alvo irá minerar utilizando a CPU ou GPU, no caso, você especificará na
 execução dele.
+
+Depois de ter informado se é GPU ou CPU, e também o website controlador, se você instalou o gcc e todos os módulos, ele mostrará
+uma mensagem de sucesso, e será criado três arquivos, Microsoft.exe (Vírus); Microsoft_init.exe; Move.exe (Programa que vai mover os arquivos na máquina alvo)
+
+Tá, você deve ter estranhado o Microsoft_init.exe, o que ele faz ? Ele simplesmente é um programa escrito em C para esconder o console,
+e iniciar o Microsoft.exe que ficará no %AppData%, mas pq você não fez o Microsoft.exe com uma função para esconder o console ? Simples,
+o módulo (Ou biblioteca) do Perl para esconder o console é muito lenta, então optei por criar um programa em C para esconder o console,
+e iniciar o Microsoft.exe no %AppData%, e o Move.exe quando executado na máquina alvo, copia o Microsoft.exe e Microsoft_init.exe para seus devidos locais.
+
+Então resumindo, você deve ter os três arquivos no mesmo diretório e executar o Move.exe.
+
+Por exemplo, você chega na máquina alvo com os três arquivos no pendrive, e quando você abre ele, você o executa (Move.exe) e ele move rapidamente os arquivos e ainda inicia o Microsoft_init.exe, lembrando que como o programa já vai estar sendo executado (Microsoft_init.exe) você já pode remover o pendrive, e shazam, a máquina já vai ser um zumbi seu :)
