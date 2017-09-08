@@ -1,5 +1,6 @@
 1 - Windows ou Linux ?
 
+Linux não funciona por causa do windows.h no C
 Se você estiver no Windows, instale o StrawBerry Perl:
 32bits - http://strawberryperl.com/download/5.26.0.2/strawberry-perl-5.26.0.2-32bit.msi
 64bits - http://strawberryperl.com/download/5.26.0.2/strawberry-perl-5.26.0.2-64bit.msi
