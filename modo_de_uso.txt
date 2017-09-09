@@ -14,7 +14,7 @@ necessário ter o Perl instalado (obviamente):
 cpan install Term::ANSIColor
 cpan install LWP::UserAgent
 cpan install LWP::Simple
-cpan install pp
+(Linux utilize isso antes desse comando: sudo apt-get install libperl-dev) cpan install pp
 
 3 - Utilizando o BitMiner 
 
