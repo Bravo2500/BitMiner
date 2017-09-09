@@ -34,22 +34,22 @@ miner->host:HOST_MINERGATE;email:SEU_EMAIL_DA_MINERGATE; - Será explicado em se
 Para utilizá-lo, é necessário ter uma conta do Minergate (https://minergate.com/login), já que o programa utiliza o serviço
 da Minergate para minerar, em seguida, você deve escolher um desses hosts, que no caso é a pool em que o BitMiner deve minerar:
 
-BCN bcn.pool.minergate.com:45550
-XMR xmr.pool.minergate.com:45560
-QCN qcn.pool.minergate.com:45570
-XDN xdn.pool.minergate.com:45620	
-FCN fcn.pool.minergate.com:45610	
-MCN mcn.pool.minergate.com:45640
-DSH dsh.pool.minergate.com:45720
-INF8 inf8.pool.minergate.com:45750
-XDN+XMR	xdn-xmr.pool.minergate.com:45790
-FCN+XMR	fcn-xmr.pool.minergate.com:45590
-FCN+QCN	fcn-qcn.pool.minergate.com:45600
-FCN+DSH	fcn-dsh.pool.minergate.com:45730
-FCN+INF8 fcn-inf8.pool.minergate.com:45760
-MCN+QCN	mcn-qcn.pool.minergate.com:45670	
-MCN+DSH	mcn-dsh.pool.minergate.com:45740
-MCN+INF8 mcn-inf8.pool.minergate.com:45770
+bcn.pool.minergate.com:45550
+xmr.pool.minergate.com:45560
+qcn.pool.minergate.com:45570
+xdn.pool.minergate.com:45620	
+fcn.pool.minergate.com:45610	
+mcn.pool.minergate.com:45640
+dsh.pool.minergate.com:45720
+inf8.pool.minergate.com:45750
+xdn-xmr.pool.minergate.com:45790
+fcn-xmr.pool.minergate.com:45590
+fcn-qcn.pool.minergate.com:45600
+fcn-dsh.pool.minergate.com:45730
+fcn-inf8.pool.minergate.com:45760
+mcn-qcn.pool.minergate.com:45670	
+mcn-dsh.pool.minergate.com:45740
+mcn-inf8.pool.minergate.com:45770
 
 Agora deve ter ficado mais claro para você, então digamos que eu queria minerar Monero (XMR) para o email joaozinho123@hotmail.com,
 seria utilizado isso: miner->host:xmr.pool.minergate.com:45560;email:joaozinho123@hotmail.com;
