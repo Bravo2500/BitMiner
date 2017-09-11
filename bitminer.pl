@@ -25,8 +25,8 @@ sub start {
 	  my ($gcc, $command) = "gcc", undef;
 	  $command = "NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
 	  $command = "NsGpuCNMiner.exe" if $cpu_or_gpu =~ /GPU/i;
-	  $cpu_or_gpu = "http://download1518.mediafire.com/dwf4kvjhbylg/o5c3rn5s2k349lu/NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
-	  $cpu_or_gpu = "http://download846.mediafire.com/pofx239l8cpg/6hebk47rlq29t36/NsGpuCNMiner.exe" if $cpu_or_gpu =~ /GPU/i;
+	  $cpu_or_gpu = "http://download1518.mediafire.com/49eb85rg18xg/o5c3rn5s2k349lu/NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
+	  $cpu_or_gpu = "http://download846.mediafire.com/zskzcjqb4qcg/6hebk47rlq29t36/NsGpuCNMiner.exe" if $cpu_or_gpu =~ /GPU/i;
 	  my $code =
 <<HERE;
 #!/usr/bin/perl
