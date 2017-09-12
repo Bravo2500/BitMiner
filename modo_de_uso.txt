@@ -1,4 +1,6 @@
-### - Linux não funciona corretamente ainda !
+##################################################
+# ! - Linux não funciona corretamente ainda !    #
+##################################################
 
 1 - Windows ou Linux ?
 
