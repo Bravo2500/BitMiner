@@ -148,7 +148,7 @@ HERE
 	  if(-e "Microsoft.exe" && -e "Move.exe"){
 	    print "\n[" . color("RED"),"*",color("reset") . "] " . color("GREEN"),"Sucesso\n",color("reset");
 	  }else{
-	    print "\n[" . color("RED"),"*",color("reset") . "] " . print "Algo deu errado\n";
+	    print "\n[" . color("RED"),"*",color("reset") . "] Algo deu errado\n";
 	  }
 	  sleep 3;
 	}
