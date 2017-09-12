@@ -1,6 +1,8 @@
+### - Linux não funciona corretamente ainda !
+
 1 - Windows ou Linux ?
 
-Linux - Funciona se executado como root
+Linux - Não funciona corretamente ainda !
 Windows - Se for escolhido CPU o malware roda em 32 bits e 64 bits, já em GPU roda em 64 bits
 Se você estiver no Windows, instale o StrawBerry Perl:
 32bits - http://strawberryperl.com/download/5.26.0.2/strawberry-perl-5.26.0.2-32bit.msi
