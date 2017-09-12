@@ -1,3 +1,6 @@
+### VERSÃO DE TESTES DO BITMINER ###
+### Essa é uma versão de testes do bitminer, não a utilize, pode apresentar instabilidades
+### VERSÃO DE TESTES DO BITMINER ###
 #!/usr/bin/perl
 use Term::ANSIColor;
 use warnings;
