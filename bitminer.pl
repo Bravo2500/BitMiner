@@ -1,3 +1,7 @@
+
+###############################################################################################
+# DESATUALIZADO, BitMiner v3: https://github.com/HatsuZ/BitMiner-v3/blob/master/bitminerv3.pl #
+###############################################################################################
 #!/usr/bin/perl
 use Term::ANSIColor;
 use warnings;
